@@ -7,13 +7,17 @@
 
 
 
-<br>
+<p align="center">
+  <em>快速了解 VLA，跟进前沿研究方向</em>
+</p>
 
-*从基础理论到实际应用，全面掌握智能体系统的设计与实现*
+<p align="center">
+  <strong>It’s amazing what you can learn if you’re not afraid to try.</strong>
+</p>
 
-**It’s amazing what you can learn if you’re not afraid to try. —— Robert A. Heinlein, Have Space Suit–Will Travel"**
-
-<br>
+<p align="right">
+  <sub><em><font color="#8a8f98">—— Robert A. Heinlein, Have Space Suit–Will Travel</font></em></sub>
+</p>
 
 
 ---
