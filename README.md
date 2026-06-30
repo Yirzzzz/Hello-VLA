@@ -109,8 +109,10 @@ Image + Instruction + Robot State
 
 <table>
   <tr>
-    <td bgcolor="#f6f8fa">
-      <strong>📝 阅读备注</strong><br><br>
+    <th>📝 阅读备注</th>
+  </tr>
+  <tr>
+    <td>
       这是本人接触 vla 工作中第一篇复现的论文，结构比较简单，也很适合大部分新手。这项工作的动机也比较明确，在此前许多工作的模块耦合，很难区分是哪个模块起作用了，因此提出了 SIMVLA 的基线模型。<br><br><strong>VLM</strong>：SmolVLM-0.5B<br><strong>Action Head</strong>：Transformer encoder
     </td>
   </tr>
@@ -232,8 +234,10 @@ Dataset
 
 <table>
   <tr>
-    <td bgcolor="#f6f8fa">
-      <strong>📝 阅读备注</strong><br><br>
+    <th>📝 阅读备注</th>
+  </tr>
+  <tr>
+    <td>
       💡 论文有个有意思的 recipe：先训练 instruction-action 的阶段，没有 image 作为 input，有点像阿里的 LA4VLA 的思想。
     </td>
   </tr>
@@ -260,8 +264,10 @@ Dataset
 
 <table>
   <tr>
-    <td bgcolor="#f6f8fa">
-      <strong>📝 阅读备注</strong><br><br>
+    <th>📝 阅读备注</th>
+  </tr>
+  <tr>
+    <td>
       <strong>Motivation:</strong> 许多机器人操作任务本质上不是 Markov 的，仅依赖当前观测很难判断任务进度。例如按钮是否已经按过、抽屉是否已经打开、某个阶段是否已经完成，这些都需要历史上下文。主流 VLA 往往缺少明确的时间记忆，因此在长程、强时序依赖任务中容易失败。<br><br><strong>Method:</strong> 文章提出 <code>MemoryVLA</code>，一个 Cognition-Memory-Action 框架。它用预训练 VLM 将当前观测编码成 perceptual tokens 和 cognitive tokens，作为 working memory；再通过 Perceptual-Cognitive Memory Bank 保存低层视觉细节和高层语义信息。决策时，working memory 会从 memory bank 中检索与当前任务相关的历史信息，并与当前 tokens 自适应融合，最后交给 memory-conditioned diffusion action expert 生成动作序列。同时，memory bank 会合并冗余信息，避免长期记忆无限增长。<br><br><strong>Takeaway:</strong> <code>MemoryVLA</code> 的核心是把短期工作记忆和长期感知-认知记忆结合起来，让 VLA 能在长程操作中理解“之前发生过什么”。
     </td>
   </tr>
@@ -271,8 +277,10 @@ Dataset
 
 <table>
   <tr>
-    <td bgcolor="#f6f8fa">
-      <strong>📝 阅读备注</strong><br><br>
+    <th>📝 阅读备注</th>
+  </tr>
+  <tr>
+    <td>
       <strong>Motivation:</strong> 现有 VLA 通常基于 Markov 假设，或者只把有限历史帧拼到输入里。这种方式要么容易受到 memory bank 中无关信息干扰，要么受固定窗口长度限制，无法稳定保留长时间上下文。作者希望在不显著增加训练和推理成本的情况下，为 VLA 加入可端到端学习的记忆机制。<br><br><strong>Method:</strong> 这篇提出的方法还挺有意思，因为不同 episode 的长度不同，为了防止 batch 的截断，提出了 slot-based 的训练方法；为了能够不仅仅是基于当前观察 $o_t$ 输出 action chunk，通过一个双向注意力的 transformer 与短期记忆和长期记忆的 query 计算，输出 action chunk；除此之外，作者还加入 Past Observation Prediction 辅助训练目标，让模型通过预测过去观测来强化视觉记忆。<br><br><strong>推荐指数</strong>：🌟🌟
     </td>
   </tr>
@@ -282,8 +290,10 @@ Dataset
 
 <table>
   <tr>
-    <td bgcolor="#f6f8fa">
-      <strong>📝 阅读备注</strong><br><br>
+    <th>📝 阅读备注</th>
+  </tr>
+  <tr>
+    <td>
       <strong>Motivation:</strong> 真实长程机器人任务需要不同粒度的记忆：短期记忆用于补偿最近几秒的遮挡和动作连续性，长期记忆用于记录更抽象的任务阶段，例如“已经完成了哪一步”。只输入固定长度的视频帧无法同时满足这两类需求，既容易丢失长期语义，又会带来很高的计算成本。<br><br><strong>Method:</strong> 文章将记忆分为短期记忆和长期记忆。短期记忆方面，作者设计了一个高效的视频编码器，在标准 ViT 上扩展视频输入：交替使用 observation 内部的双向空间注意力和跨 observation 的因果时间注意力，并在 ViT 上层丢弃过去时间步的 observation tokens，从而压缩短时视频记忆并减少传入 VLA backbone 的 token 数量。长期记忆方面，模型通过预测 subtask 表示当前任务阶段，并将已完成的 subtask 拼接回输入，作为后续动作预测的长期上下文。最终，模型结合短期视频记忆、长期 subtask 记忆和当前指令来预测 action chunk。<br><br><strong>推荐指数:</strong> 🌟🌟🌟
     </td>
   </tr>
@@ -301,8 +311,10 @@ Dataset
 
 <table>
   <tr>
-    <td bgcolor="#f6f8fa">
-      <strong>📝 阅读备注</strong><br><br>
+    <th>📝 阅读备注</th>
+  </tr>
+  <tr>
+    <td>
       <strong>Motivation</strong>：如何让一个 VLA 在部署后继续从自己的执行经验中学习和改进。<br><br><strong>Method</strong>：提出 Recap：设计 reward & return -> 训练 value function -> 设计优势函数 -> 训练 CFG。<br><br><strong>推荐指数:</strong> 🌟🌟🌟（It’s amazing what you can learn if you’re not afraid to try，这是我最喜欢的一句话）
     </td>
   </tr>
@@ -312,8 +324,10 @@ Dataset
 
 <table>
   <tr>
-    <td bgcolor="#f6f8fa">
-      <strong>📝 阅读备注</strong><br><br>
+    <th>📝 阅读备注</th>
+  </tr>
+  <tr>
+    <td>
       <strong>Motivation:</strong> 现有 VLA 通常采用行为克隆进行训练，默认人类示范中的所有动作都是最优的。然而，在长时程、高精度的操作任务中，人类示范往往包含犹豫、停顿、重复尝试和无效调整等次优行为。行为克隆会不加区分地拟合这些动作，从而限制策略的精度与执行效率。<br><br><strong>Method:</strong> GR-RL 首先基于带有稀疏奖励的离线强化学习训练 Q-function，并将得到的 Q-value 作为任务进度函数，用于判断每个 transition 是否真正推动了任务向成功方向发展。随后，模型过滤掉对任务进度贡献较小或产生负面影响的动作，仅保留具有正向进度训练 VLA Policy。<br><br><strong>推荐指数:</strong> 🌟🌟（方法上可行，但是鄙人认为 failure episode 和 success episode 会有重叠部分，这部分可能会导致模型训练矛盾？）
     </td>
   </tr>
@@ -323,8 +337,10 @@ Dataset
 
 <table>
   <tr>
-    <td bgcolor="#f6f8fa">
-      <strong>📝 阅读备注</strong><br><br>
+    <th>📝 阅读备注</th>
+  </tr>
+  <tr>
+    <td>
       <strong>Motivation:</strong> 作者认为现有 VLA 模型多为端到端训练，缺少显式推理模块，导致模型难以进行多步规划和处理复杂任务。<br><br><strong>Method:</strong> 基于这一动机，论文将 VLM 的输出向量编码为轨迹表示，并利用 GRPO 对多个 image embedding 进行强化训练，引导高层视觉潜在规划。<br><br><strong>推荐指数:</strong> 🌟（文章在方法部分提到模型输出高层推理潜向量 $v_t$，但未对该向量的训练方式进行说明，因此其实际贡献和 novelty 较为有限。）
     </td>
   </tr>
@@ -342,8 +358,10 @@ Dataset
 
 <table>
   <tr>
-    <td bgcolor="#f6f8fa">
-      <strong>📝 阅读备注</strong><br><br>
+    <th>📝 阅读备注</th>
+  </tr>
+  <tr>
+    <td>
       <strong>Motivation:</strong> 认为目前的 action manipulation 主要被视觉信息主导，instruction 只占有少量的 token。<br><br><strong>Method</strong>：将 episode 进行关键帧识别以及 subtask 分配，构建一个 subtask 预训练数据集，并实现 <code>LA-VLA</code> 的预训练范式。<br><br><strong>推荐指数:</strong> 🌟🌟🌟
     </td>
   </tr>
@@ -353,8 +371,10 @@ Dataset
 
 <table>
   <tr>
-    <td bgcolor="#f6f8fa">
-      <strong>📝 阅读备注</strong><br><br>
+    <th>📝 阅读备注</th>
+  </tr>
+  <tr>
+    <td>
       <strong>Motivation:</strong> 真实长程机器人任务需要不同粒度的记忆：短期记忆用于补偿最近几秒的遮挡和动作连续性，长期记忆用于记录更抽象的任务阶段，例如“已经完成了哪一步”。只输入固定长度的视频帧无法同时满足这两类需求，既容易丢失长期语义，又会带来很高的计算成本。<br><br><strong>Method:</strong> 模型通过预测 subtask 表示当前任务阶段，并将已完成的 subtask 拼接回输入，作为后续动作预测的长期上下文。最终，模型结合短期视频记忆、长期 subtask 记忆和当前指令来预测 action chunk。<br><br><strong>推荐指数:</strong> 🌟🌟🌟
     </td>
   </tr>
@@ -364,8 +384,10 @@ Dataset
 
 <table>
   <tr>
-    <td bgcolor="#f6f8fa">
-      <strong>📝 阅读备注</strong><br><br>
+    <th>📝 阅读备注</th>
+  </tr>
+  <tr>
+    <td>
       <strong>Method:</strong> 文章介绍了自动化标注一段视频 keyframe 以及 subtask 的标注。<br><br><strong>推荐指数:</strong> 🌟🌟
     </td>
   </tr>
