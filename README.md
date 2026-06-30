@@ -1,22 +1,41 @@
+<img src="/Users/yirz/PyCharmProject/Hello-VLA/assets/5938b051-acba-4347-af58-c905d9272a39.png" alt="5938b051-acba-4347-af58-c905d9272a39" style="zoom: 52%;" />
+
 # 🤖 Hello VLA
 
 
 
 <br>
 
-实践永远是最好的老师。即使是刚刚接触一个领域，我认为最快的学习方式也是先动手实践，再在实践过程中不断补充知识，而不是等到拥有“完美”的知识储备后再开始。
-
-VLA 和世界模型是当前比较热门的研究方向，但面对大量论文和 Awesome 仓库，初学者往往很难判断应该从哪里开始。在这里，我会分享自己阅读过的论文、实践过的项目，以及对它们的理解。
-
-当然，这些内容都带有一定的主观性。如果有错误的地方，欢迎大家纠正；如果你有更好的想法，也欢迎联系我：📧：yirongzzz@163.com
-
 **It’s amazing what you can learn if you’re not afraid to try. —— Robert A. Heinlein, Have Space Suit–Will Travel"**
 
 <br>
 
+<br>
+
+*Organizing and showcasing state-of-the-art technologies in robot learning —*
+*Vision-Language-Action (VLA), World-Action-Model (WAM), Vision-Language-Navigation (VLN), Vision-Action (VA),*
+*and MLLM-based Embodied Learning.*
+
+**We believe robotics will experience its own "LLM moment."**
+
+<br>
 
 
-<img src="/Users/yirz/PyCharmProject/Hello-VLA/assets/5938b051-acba-4347-af58-c905d9272a39.png" alt="5938b051-acba-4347-af58-c905d9272a39" style="zoom: 55%;" />
+---
+
+</div>
+
+
+
+## 写在前面
+
+实践永远是最好的老师。即使是刚刚接触一个领域，我认为最快的学习方式也是先动手实践，再在实践过程中不断补充知识，而不是等到拥有“完美”的知识储备后再开始。
+
+VLA 和世界模型是当前比较热门的研究方向，但面对大量论文和 Awesome 仓库，初学者往往很难判断应该从哪里开始。在这里，我会分享自己阅读过的论文、实践过的项目，以及对它们的理解。
+
+当然，这些内容都带有一定的主观性。如果有错误的地方，欢迎大家纠正；如果你有更好的想法，也欢迎联系我。
+
+📧：[yirongzzz@163.com](mailto:yirongzzz@163.com)
 
 
 
