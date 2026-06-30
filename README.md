@@ -1,4 +1,4 @@
-<img src="/Users/yirz/PyCharmProject/Hello-VLA/assets/5938b051-acba-4347-af58-c905d9272a39.png" alt="5938b051-acba-4347-af58-c905d9272a39" style="zoom: 52%;" />
+<img src="./assets/5938b051-acba-4347-af58-c905d9272a39.png" alt="5938b051-acba-4347-af58-c905d9272a39" style="zoom: 52%;" />
 
 # 🤖 Hello VLA
 
