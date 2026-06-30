@@ -1,6 +1,7 @@
 <p align="center">
-  <img src="./assets/5938b051-acba-4347-af58-c905d9272a39.png" alt="Hello VLA" width="52%" />
+  <img src="./assets/5938b051-acba-4347-af58-c905d9272a39.png" alt="Hello VLA" width="62%" />
 </p>
+
 
 <h1 align="center">🤖 Hello VLA</h1>
 
@@ -8,17 +9,9 @@
 
 <br>
 
+*从基础理论到实际应用，全面掌握智能体系统的设计与实现*
+
 **It’s amazing what you can learn if you’re not afraid to try. —— Robert A. Heinlein, Have Space Suit–Will Travel"**
-
-<br>
-
-<br>
-
-*Organizing and showcasing state-of-the-art technologies in robot learning —*
-*Vision-Language-Action (VLA), World-Action-Model (WAM), Vision-Language-Navigation (VLN), Vision-Action (VA),*
-*and MLLM-based Embodied Learning.*
-
-**We believe robotics will experience its own "LLM moment."**
 
 <br>
 
