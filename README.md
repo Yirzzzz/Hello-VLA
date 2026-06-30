@@ -1,6 +1,8 @@
-<img src="./assets/5938b051-acba-4347-af58-c905d9272a39.png" alt="5938b051-acba-4347-af58-c905d9272a39" style="zoom: 52%;" />
+<p align="center">
+  <img src="./assets/5938b051-acba-4347-af58-c905d9272a39.png" alt="Hello VLA" width="52%" />
+</p>
 
-# 🤖 Hello VLA
+<h1 align="center">🤖 Hello VLA</h1>
 
 
 
